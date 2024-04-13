@@ -17,6 +17,8 @@ const Credentials = CredentialsProvider({
     },
     authorize: async (credentials) => {
 		try {
+			console.log(credentials?.email);
+			console.log(credentials?.password);
 			console.log(['CREDENTIALS AUTHORIZE'])
 			const { data } = await client.post('/auth', {
 				...credentials,
