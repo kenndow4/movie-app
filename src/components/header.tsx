@@ -7,6 +7,7 @@ import { RiMenu3Line } from 'react-icons/ri';
 import Search from './search';
 import Link from 'next/link';
 import Sidebar from './sidebar';
+import { Drawer } from './upload/drawer';
 
 const navigation = [
   
@@ -59,8 +60,8 @@ export default function Header() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    className="h-[55px] w-auto"
+                    src="img/logomoviehub.jpg"
                     alt="Your Company"
                   />
                 </div>
@@ -101,7 +102,8 @@ export default function Header() {
 
                     </Menu.Button> */}
                     
-                      <Link className='border border-[#5218fa] py-2 px-4 rounded-full hover:bg-[#5218fa]' href={"/login"}>SigIn</Link>
+                      {/* <Link className='border border-[#5218fa] py-2 px-4 rounded-full hover:bg-[#5218fa]' href={"/login"}>SigIn</Link> */}
+                      <Drawer/>
                   </div>
                   <Transition
                     as={Fragment}
