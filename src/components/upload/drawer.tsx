@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Minus, Plus } from "lucide-react";
-import { Bar, BarChart, ResponsiveContainer } from "recharts";
+import * as React from "react"
+import { Minus, Plus } from "lucide-react"
+import { Bar, BarChart, ResponsiveContainer } from "recharts"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Drawer,
   DrawerClose,
@@ -12,7 +12,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@/components/ui/drawer"
 
 const data = [
   {
@@ -54,27 +54,27 @@ const data = [
   {
     goal: 349,
   },
-];
+]
 
 export function DrawerDemo() {
-  const [goal, setGoal] = React.useState(350);
+  const [goal, setGoal] = React.useState(350)
 
   function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
   }
 
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline border border-solid border-red-500">Open Drawer</Button>
+        <Button variant="outline">Open Drawer</Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="border border-solid border-red-500">
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
             <DrawerTitle>Move Goal</DrawerTitle>
             <DrawerDescription>Set your daily activity goal.</DrawerDescription>
           </DrawerHeader>
-          <div className="p-4 pb-0">
+          <div className="p-4 pb-0 ">
             <div className="flex items-center justify-center space-x-2">
               <Button
                 variant="outline"
@@ -87,10 +87,10 @@ export function DrawerDemo() {
                 <span className="sr-only">Decrease</span>
               </Button>
               <div className="flex-1 text-center">
-                <div className="text-7xl font-bold tracking-tighter text-white"> {/* Cambiar el color del texto a blanco */}
+                <div className="text-7xl font-bold tracking-tighter">
                   {goal}
                 </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground text-white"> {/* Cambiar el color del texto a blanco */}
+                <div className="text-[0.70rem] uppercase text-muted-foreground">
                   Calories/day
                 </div>
               </div>
@@ -110,8 +110,12 @@ export function DrawerDemo() {
                 <BarChart data={data}>
                   <Bar
                     dataKey="goal"
-                    fill="#FFFFFF" // Cambiar el color de relleno de la barra a blanco
-                    opacity={0.9} // Ajustar la opacidad si es necesario
+                    style={
+                      {
+                        fill: "hsl(var(--foreground))",
+                        opacity: 0.9,
+                      } as React.CSSProperties
+                    }
                   />
                 </BarChart>
               </ResponsiveContainer>
@@ -126,5 +130,5 @@ export function DrawerDemo() {
         </div>
       </DrawerContent>
     </Drawer>
-  );
+  )
 }
