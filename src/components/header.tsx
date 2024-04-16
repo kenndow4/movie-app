@@ -7,7 +7,8 @@ import { RiMenu3Line } from 'react-icons/ri';
 import Search from './search';
 import Link from 'next/link';
 import Sidebar from './sidebar';
-import { Drawer } from './upload/drawer';
+import { DrawerDemo } from './upload/drawer';
+
 
 const navigation = [
   
@@ -103,7 +104,7 @@ export default function Header() {
                     </Menu.Button> */}
                     
                       {/* <Link className='border border-[#5218fa] py-2 px-4 rounded-full hover:bg-[#5218fa]' href={"/login"}>SigIn</Link> */}
-                      <Drawer/>
+                      <DrawerDemo/>
                   </div>
                   <Transition
                     as={Fragment}
