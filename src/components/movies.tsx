@@ -21,7 +21,7 @@ const products = [
       color: '2002-28944',
     },
     {
-      id: 3,
+      id: 7,
       name: 'Lord of the Rings',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
@@ -37,7 +37,7 @@ const products = [
       color: '2002-28946',
     },
     {
-      id: 5,
+      id: 2,
       name: 'Jurassic Park',
       href: '#',
       imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-05.jpg',
@@ -45,7 +45,7 @@ const products = [
       color: '2002-28947',
     },
     {
-        id: 2,
+        id: 7,
         name: 'Harry Potter',
         href: '#',
         imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',

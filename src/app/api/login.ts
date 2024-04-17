@@ -3,9 +3,9 @@ import { Auth } from "../../../types/auth";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export const auth = async(data:Auth) =>{
     try {
+		console.log(data);
 		const res = await fetch(`${API_URL}/auth`, {
 			method: 'POST',
-			credentials:"include",
 			headers: {
 				'Content-Type': 'application/json',
 			},
