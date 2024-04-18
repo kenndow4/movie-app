@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { Minus, Plus } from "lucide-react"
 import { Bar, BarChart, ResponsiveContainer } from "recharts"
@@ -15,6 +17,10 @@ import {
 } from "@/components/ui/drawer"
 import { Input } from "./input"
 import { Roboto } from "next/font/google"
+import { upload } from "@/app/api/upload"
+import { Upload } from "../../../types/upload"
+import { useState } from "react"
+import { PulseLoader } from "react-spinners"
 
 const data = [
   {
@@ -59,9 +65,22 @@ const data = [
 ]
 
 export function DrawerDemo() {
-  const [goal, setGoal] = React.useState(350);
+  const [goal, setGoal] =useState(350);
+  const [title, setTitle] = useState<string>("ss");
+  const [description, setDescription] =useState<string>("ddd");
+  const [link, setLink] = useState<string>("sadsad.gf");
+  const [poster, setPoster] = useState<string>("fgf.jpg");
+  const [year, setYear] =useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  
 
+  const handleUpload = async() => {
+    setLoading(true);
+    setError("");
 
+    const upl:Upload= await upload({title:title, description:description, link:link, year:year,poster:poster});
+  };
 
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)))
@@ -80,16 +99,22 @@ export function DrawerDemo() {
           </DrawerHeader>
           
           <div className="">
-      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="email" style={{fontFamily:'Roboto,Sans-Serif'}} placeholder="Email"/>
-      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="text" placeholder="URL" />
-      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="text" placeholder="Actores"/>
-      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="text" placeholder="Director" />
+      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="email" style={{fontFamily:'Roboto,Sans-Serif'}} value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Title"/>
+      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="text" placeholder="Description" value={description} onChange={(e)=>setDescription(e.target.value)}  />
+      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="text" placeholder="Link" value={link} onChange={(e)=>setLink(e.target.value)} />
+      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="number" placeholder="Year" value={year} onChange={(e)=>setYear(Number(e.target.value))}  />
+      <Input className="mb-4 bg-[#000] border-solid border-gray-500" type="text" placeholder="Year" value={poster} onChange={(e)=>setPoster(e.target.value)}  />
       <Input className="mb-4 rounded-full bg-gray-200" type="file" placeholder="Archivo"/>
            </div>
           
 
           <DrawerFooter className="p-0 ">
-            <Button className="w-full bg-[#5218fa]">Submit</Button>
+            <Button className="w-full bg-[#5218fa]" onClick={handleUpload} > {loading ?
+                <PulseLoader color='#fff' size={7}/>
+                :
+                "Submit"
+
+              }</Button>
             
           </DrawerFooter>
         </div>
