@@ -70,8 +70,8 @@ export default function Header() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-[55px] w-auto"
-                    src="img/logomoviehub.jpg"
+                    className="h-[10%] w-auto"
+                    src="img/LOGO PNG.png"
                     alt="Your Company"
                   />
                 </div>
