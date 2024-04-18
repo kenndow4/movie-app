@@ -71,7 +71,7 @@ export default function Header() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-[55px] w-auto"
-                    src="img/logomoviehub.jpg"
+                    src="img/LOGO PNG.png"
                     alt="Your Company"
                   />
                 </div>
@@ -101,7 +101,6 @@ export default function Header() {
                 <Menu as="div" className="relative ml-3">
                   
                   <div>
-                   {localStorage.getItem("jwt") ?
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
@@ -111,12 +110,7 @@ export default function Header() {
                       alt=""
                       />
                       </Menu.Button>
-                    :
-
-
-                   <Link className='border border-[#5218fa] py-2 px-4 rounded-full hover:bg-[#5218fa]' href={"/login"}>SigIn</Link>
-                   }
-                    
+                 
                      
                   </div>
                   <Transition
