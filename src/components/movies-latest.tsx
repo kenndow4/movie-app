@@ -40,7 +40,7 @@ const products = [
       color: '2024',
     },
     {
-      id: 2,
+      id: 4,
       name: 'The Batman',
       href: '#',
       imageSrc: 'https://posters.movieposterdb.com/22_02/2022/1877830/l_1877830_764432ad.jpg',
@@ -56,7 +56,7 @@ const products = [
       color: '2024',
     },
     {
-      id: 2,
+      id: 6,
       name: 'Someone Like You',
       href: '#',
       imageSrc: 'https://posters.movieposterdb.com/23_03/0/22334258/l_someone-like-you-movie-poster_87bb5749.jpg',
@@ -64,7 +64,7 @@ const products = [
       color: '2024',
     },
     {
-      id: 4,
+      id: 7,
       name: 'Dune: Part Two',
       href: '#',
       imageSrc: 'https://posters.movieposterdb.com/24_02/2024/15239678/l_dune-part-two-movie-poster_18c5c05f.jpg',
@@ -96,9 +96,12 @@ const products = [
         <Slider {...settings}>
 
       {products.map((product, index) => (
+        
        
        <div key={product.id} className={`group relative h-[450px] opacity-[0.6] ${index === selectedProduct ? 'selected-product' : ''} pt-10 pl-5`}>
+        
        <div className={`aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-700 lg:aspect-none group-hover:opacity-75 lg:h-80 ${index === selectedProduct ? 'border-2 border-white' : ''}`}>
+         
          <img
            src={product.imageSrc}
            alt={product.imageAlt}

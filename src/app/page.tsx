@@ -16,7 +16,7 @@ export default function Home() {
 
       <Nav/>
       {/* <div className="h-screen bg-red-500 w-full">
-
+      
       </div> */}
       {/* <img src="/img/mv.jpg" alt="a" width={100} height={200}className="w-full" style={{ height: 'calc(100vh - 100px)' }}/> */}
      

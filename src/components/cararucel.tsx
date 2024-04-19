@@ -6,7 +6,7 @@ import React, { useState } from "react";
 // Componente de Carrusel
 const Carousel: React.FC = () => {
   return (
-    <div className="relative h-screen" style={{ height: "calc(100vh - 300px)" }}>
+    <div className="relative h-screen mt-[5%]" style={{ height: "calc(100vh - 300px)" }}>
       <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
         <source src="/video/jock.mp4" type="video/mp4" />
         {/* Agrega aquí otras fuentes de video si es necesario */}
