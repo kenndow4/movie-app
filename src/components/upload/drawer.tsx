@@ -75,17 +75,25 @@ export function DrawerDemo() {
   const [error, setError] = useState<string>("");
   
 
-  const handleUpload = async() => {
+  const handleUpload = async () => {
     setLoading(true);
     setError("");
 
-    const upl:Upload= await upload({title:title, description:description, link:link, year:year,poster:poster});
+    // ESTO FUE LO QUE CAMBIE DEL UPLOAD (JOHN PRESTAMOS 8493594359)
+    try {
+
+      const upl: Upload = await upload({ title: title, description: description, link: link, year: year, poster: poster });
+      // Aquí podrías realizar alguna acción con el resultado exitoso de la carga
+      console.log("Archivo subido correctamente:", upl);
+    } catch (error : any) {
+      
+      // Manejar cualquier error que ocurra durante la carga del archivo
+      setError("Error al cargar el archivo: " + error.message);
+    } finally {
+      setLoading(false); // Asegúrate de establecer loading en false, independientemente del resultado
+    }
   };
-
-  function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
-  }
-
+  
   return (
     <Drawer>
       <DrawerTrigger asChild>

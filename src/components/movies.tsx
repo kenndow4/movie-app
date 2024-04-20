@@ -6,61 +6,20 @@ import "slick-carousel/slick/slick-theme.css"
 const products = [
     {
       id: 1,
-      name: 'Star Wars',
-      href: '#',
-      imageSrc: 'https://www.imdb.com/title/tt0105695/',
+      name: 'Batman',
+      href: 'https://www.youtube.com/watch?v=mqqft2x_Aa4',
+      imageSrc: 'https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/7EEP4HTMSZCY7O5LZH44IAHS4Y.jpg&w=750&h=495',
       imageAlt: "Front of men's Basic Tee in black.",
-      color: '2002-28943',
-    },
-    {
-      id: 2,
-      name: 'Harry Potter',
-      href: '#',
-      imageSrc: 'https://www.imdb.com/title/tt15398776/mediaviewer/rm1405901313/',
-      imageAlt: "Front of men's Basic Tee in white.",
-      color: '2002-28944',
-    },
-    {
-      id: 3,
-      name: 'Lord of the Rings',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg',
-      imageAlt: "Front of men's Basic Tee in blue.",
-      color: '2002-28945',
-    },
-    {
-      id: 4,
-      name: 'Avatar',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg',
-      imageAlt: "Front of men's Basic Tee in gray.",
-      color: '2002-28946',
-    },
-    {
-      id: 5,
-      name: 'Jurassic Park',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-05.jpg',
-      imageAlt: "Front of men's Basic Tee in green.",
-      color: '2002-28947',
-    },
-    {
-        id: 6,
-        name: 'Harry Potter',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
-        imageAlt: "Front of men's Basic Tee in white.",
-        color: '2002-28944',
-      },
+      color: '2002-28943',},
+
       {
-        id: 7,
-        name: 'Harry Potter',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg',
-        imageAlt: "Front of men's Basic Tee in white.",
-        color: '2002-28944',
-      },
-    // Add more products as needed
+        id: 2,
+        name: 'dead pool',
+        href: 'https://youtu.be/0JnRdfiUMa8?si=amxF0Iv4K8025xq_',
+        imageSrc: 'https://pics.filmaffinity.com/Deadpool-834516798-mmed.jpg',
+        imageAlt: "Front of men's Basic Tee in black.",
+        color: '2002-28943',},
+
   ];
   
 
