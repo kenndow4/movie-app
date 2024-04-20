@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
+import { Bars3Icon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+
 import { getmovie } from "@/app/api/getmovie";
 import { Upload } from "../../types/upload";
 
@@ -69,7 +71,7 @@ export default function MovieLatest() {
             <div key={product.id} className={`group relative h-[450px] opacity-[0.6] ${index === selectedProduct ? 'selected-product' : ''} pt-10 pl-5`}>
               <div className={`aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-700 lg:aspect-none group-hover:opacity-75 lg:h-80 ${index === selectedProduct ? 'border-2 border-white' : ''}`}>
                 <img
-                  src={product.imageSrc}
+                  src={product.poster}
                   alt={product.imageAlt}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
@@ -79,14 +81,20 @@ export default function MovieLatest() {
                   <h3 className="text-[17px] font-medium">
                     <a href={product.href}>
                       <span aria-hidden="true" className="absolute text-[20px]" />
-                      {product.name}
+                      {product.title}
                     </a>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                 </div>
                 <div className="flex">
-                  <button onClick={() => handleEdit(product.id)} className="mr-2">Editar</button>
-                  <button onClick={() => handleDelete(product.id)}>Eliminar</button>
+                  <button  onClick={() => handleEdit(product.id)} className="mr-2 bg-green-500 py-1 px-2 rounded"><PencilIcon className="text-white w-[16px] h-[16px] " /></button>
+                  <button 
+            onClick={() => handleDelete(product.id)} 
+            className="bg-red-500 py-1 px-2 rounded"
+        >
+            <TrashIcon className="text-white w-[16px] h-[16px]" /> {/* Ajusta el tamaño del ícono */}
+        </button>
+                 
                 </div>
               </div>
             </div>
