@@ -8,6 +8,7 @@ import { Bars3Icon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 import { getmovie } from "@/app/api/getmovie";
 import { Upload } from "../../types/upload";
+import { deleteApi } from "@/app/api/delete";
 
 interface SliderSettings {
   dots: boolean;
@@ -20,24 +21,37 @@ interface SliderSettings {
 
 
 
+
+
 export default function MovieLatest() {
   const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
-  const [movieproduct, setMovieProduct] = useState<any>([]);
-  
-  
+  const [movieproduct, setMovieProduct] = useState<Upload[]>([]);
+
+  const handleDelete = async (productId: string) => {
+    console.log("Eliminando película con ID:", productId);
+    try {
+      const res = await deleteApi(productId);
+      console.log(res); // Muestra la respuesta de la API en la consola
+      // Actualiza el estado de las películas después de la eliminación
+      setMovieProduct(movieproduct.filter((product: any) => product.id !== productId));
+    } catch (error) {
+      console.error("Error al eliminar la película:", error);
+    }
+  };
 
   useEffect(() => {
-
     const getproducts = async () => {
       // Llama a la función asíncrona getmovie
       const products = await getmovie();
-      // Actualiza el estado con los productos obtenidos
-      setMovieProduct(products);
+      // Ordena los productos por año en orden descendente (de los más recientes a los más antiguos)
+      const sortedProducts = products.sort((a: { year: number; }, b: { year: number; }) => b.year - a.year);
+      // Actualiza el estado con los productos ordenados
+      setMovieProduct(sortedProducts);
     }
-  
+
     // Llama a getproducts dentro de useEffect para que se ejecute después de que el componente se monte
     getproducts();
-  
+
     // No necesitas incluir movieproduct en las dependencias de useEffect si solo deseas que se ejecute una vez
   }, []);
 
@@ -57,19 +71,15 @@ export default function MovieLatest() {
     // Aquí va la lógica para editar la película con el ID productId
   };
 
-  const handleDelete = (productId: number) => {
-    console.log("Eliminando película con ID:", productId);
-    // Aquí va la lógica para eliminar la película con el ID productId
-  };
-
   return (
     <div className="w-[95%] m-auto ">
       <div className="mt-20">
-        <h1 className="ml-5">Mejor calificadas</h1>
+        <h1 className="ml-5">Ultimas peliculas</h1>
         <Slider {...settings}>
           {movieproduct && movieproduct.map((product:any, index:any) => (
-            <div key={product.id} className={`group relative h-[450px] opacity-[0.6] ${index === selectedProduct ? 'selected-product' : ''} pt-10 pl-5`}>
+            <div key={product._id} className={`group relative h-[450px] opacity-[0.6] ${index === selectedProduct ? 'selected-product' : ''} pt-10 pl-5`}>
               <div className={`aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-700 lg:aspect-none group-hover:opacity-75 lg:h-80 ${index === selectedProduct ? 'border-2 border-white' : ''}`}>
+                
                 <img
                   src={product.poster}
                   alt={product.imageAlt}
@@ -86,16 +96,17 @@ export default function MovieLatest() {
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                 </div>
-                <div className="flex">
-                  <button  onClick={() => handleEdit(product.id)} className="mr-2 bg-green-500 py-1 px-2 rounded"><PencilIcon className="text-white w-[16px] h-[16px] " /></button>
+               {localStorage.getItem("jwt")&&  <div className="flex">
+                  <button  onClick={() => handleEdit(product._id)} className="mr-2 bg-green-500 py-1 px-2 rounded"><PencilIcon className="text-white w-[16px] h-[16px] " /></button>
                   <button 
-            onClick={() => handleDelete(product.id)} 
+            onClick={() => handleDelete(product._id)} 
             className="bg-red-500 py-1 px-2 rounded"
         >
             <TrashIcon className="text-white w-[16px] h-[16px]" /> {/* Ajusta el tamaño del ícono */}
         </button>
                  
                 </div>
+               }
               </div>
             </div>
           ))}
@@ -104,6 +115,7 @@ export default function MovieLatest() {
     </div>
   );
 }
+
 
 
    // export default function Movie() {

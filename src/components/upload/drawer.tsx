@@ -82,7 +82,7 @@ export function DrawerDemo() {
     // ESTO FUE LO QUE CAMBIE DEL UPLOAD (JOHN PRESTAMOS 8493594359)
     try {
 
-      const upl: Upload = await upload({ title: title, description: description, link: link, year: year, poster: poster });
+      const upl: Upload = await upload({ title: title, description: description, link: link, year: year, poster: poster , _id:"" });
       // Aquí podrías realizar alguna acción con el resultado exitoso de la carga
       console.log("Archivo subido correctamente:", upl);
     } catch (error : any) {

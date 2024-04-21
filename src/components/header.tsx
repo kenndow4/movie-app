@@ -48,7 +48,7 @@ export default function Header() {
   }, []);
 
   return (
-    <Disclosure as="nav" className={`fixed top-0 z-50 w-full ${isScrolled ? 'bg-black' : 'contenedor'}`}>
+    <Disclosure as="nav" className={`fixed top-0 z-50 w-full ${isScrolled ? 'bg-black' : 'bg-transparent'}`}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8 ">
@@ -70,7 +70,7 @@ export default function Header() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-[10%] w-auto"
+                    className="h-[40px] w-auto"
                     src="img/LOGO PNG.png"
                     alt="Your Company"
                   />
@@ -100,19 +100,23 @@ export default function Header() {
                 </div>
                 <Menu as="div" className="relative ml-3">
                   
+                  {localStorage.getItem("jwt")?
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                      />
-                      </Menu.Button>
-                 
-                     
-                  </div>
+                  <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Open user menu</span>
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt=""
+                    />
+                    </Menu.Button>
+               
+                   
+                </div>
+                :
+                <a href="/register">Administrador</a>
+                  }
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
