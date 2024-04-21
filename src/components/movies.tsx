@@ -8,6 +8,7 @@ import { Upload } from "../../types/upload";
 import { getmovie } from "@/app/api/getmovie";
 import { deleteApi } from "@/app/api/delete";
 import { TrashIcon } from "@primer/octicons-react";
+import Link from "next/link";
 
 export default function Movies() {
   const [movieproduct, setMovieProduct] = useState<Upload[]>([]);
@@ -51,6 +52,7 @@ export default function Movies() {
 
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-8">
         {movieproduct.map((product) => (
+        <Link href={`/trailers?_id=${product._id}`}>
           <div key={product._id} className="group relative">
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-700 lg:aspect-none group-hover:opacity-75 lg:h-80">
               <img
@@ -62,10 +64,8 @@ export default function Movies() {
             <div className="mt-4 flex justify-between">
               <div>
                 <h3 className="text-[17px] font-medium">
-                  <a href="#">
                     <span aria-hidden="true" className="absolute text-[20px]" />
                     {product.title}
-                  </a>
                 </h3>
               </div>
            {localStorage.getItem("jwt")&&
@@ -74,7 +74,7 @@ export default function Movies() {
              <button 
        onClick={() => handleDelete(product._id)} 
        className="bg-red-500 py-1 px-2 rounded"
-   >
+       >
        <TrashIcon className="text-white w-[16px] h-[16px]" /> {/* Ajusta el tamaño del ícono */}
    </button>
             
@@ -83,6 +83,7 @@ export default function Movies() {
             </div>
             <p className="text-[15px] text-gray-500">{product.year}</p>
           </div>
+           </Link>
         ))}
       </div>
     </div>
