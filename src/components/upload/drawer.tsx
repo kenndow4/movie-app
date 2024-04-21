@@ -66,11 +66,11 @@ const data = [
 
 export function DrawerDemo() {
   const [goal, setGoal] =useState(350);
-  const [title, setTitle] = useState<string>("ss");
-  const [description, setDescription] =useState<string>("ddd");
-  const [link, setLink] = useState<string>("sadsad.gf");
-  const [poster, setPoster] = useState<string>("fgf.jpg");
-  const [year, setYear] =useState<number>(0);
+  const [title, setTitle] = useState<string>("Spider-Man: Across the Spider-Verse");
+  const [description, setDescription] =useState<string>("Miles Morales emprende una aventura a través del multiverso con Gwen Stacy y un nuevo equipo de la Spider People que deben enfrentar a un poderoso villano.");
+  const [link, setLink] = useState<string>("https://youtu.be/cqGjhVJWtEg?si=bA0dcEuCAfVo2Ehj");
+  const [poster, setPoster] = useState<string>("https://xl.movieposterdb.com/23_06/2022/11290914/xl_spider-man-across-the-spider-verse-part-one-movie-poster_37d41ec0.jpg?v=2024-04-07%2011:38:43");
+  const [year, setYear] =useState<number>(2023);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   
